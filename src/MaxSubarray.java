@@ -4,12 +4,13 @@ class MaxSubarray {
 
     static int[] func(int[] a) {
 
-        int li = 0, ri = 0, currentSum = 0;
+        int li = 0, ri = 0;
 
         int[] newArray;
 
-        int maxSum = a[0];
+        int maxSum = -1;
         int minSum = 0;
+        int currentSum = 0;
 
         int start = -1;
 
@@ -30,19 +31,9 @@ class MaxSubarray {
                 minSum = currentSum;
                 start = i;
             }
-
-
         }
 
-        if (li == ri) {
-
-            newArray = new int[]{a[li]};
-            return newArray;
-
-        } else {
-
-            newArray = Arrays.copyOfRange(a, li, ri + 1);
-            return newArray;
-        }
+        newArray = Arrays.copyOfRange(a, li, ri + 1);
+        return newArray;
     }
 }
